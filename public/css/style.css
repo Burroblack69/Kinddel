@@ -1,0 +1,182 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Pacifico&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f0f2f5;
+    color: #333;
+}
+
+.landing {
+    height: 100vh;
+    background: linear-gradient(135deg, #ff7eb3, #ff758c);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+}
+
+.landing h1 {
+    font-family: 'Pacifico', cursive; 
+    font-size: 4rem;
+    margin-bottom: 10px;
+}
+
+.slogan {
+    font-size: 1.5rem;
+    margin-top: 20px;
+    font-style: italic;
+    background: rgba(255,255,255,0.2);
+    padding: 10px 20px;
+    border-radius: 20px;
+}
+
+.btn-group {
+    margin-top: 30px;
+}
+
+.btn {
+    padding: 12px 30px;
+    border-radius: 50px;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    margin: 0 10px;
+    transition: transform 0.2s;
+}
+
+.btn:hover { transform: scale(1.05); }
+
+.btn-primary { background: white; color: #ff758c; }
+.btn-secondary { background: transparent; border: 2px solid white; color: white; }
+
+
+.container { max-width: 800px; margin: 50px auto; padding: 20px; }
+.card { background: white; padding: 30px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+.form-group { margin-bottom: 15px; }
+input, select { width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 8px; box-sizing: border-box;}
+label { display: block; margin-bottom: 5px; font-weight: 600; }
+
+
+.cita-card {
+    background: white;
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 12px;
+    border-left: 5px solid #ff758c;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.cita-info h3 { margin: 0 0 5px 0; color: #ff758c; }
+.badge { padding: 5px 10px; border-radius: 5px; font-size: 0.8rem; }
+.pendiente { background: #ffeaa7; }
+.confirmada { background: #55efc4; }
+.negada { background: #ff7675; color: white;}
+
+.actions button, .actions a {
+    margin-left: 5px;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+.btn-edit { background: #74b9ff; color: white; text-decoration: none;}
+.btn-delete { background: #ff7675; color: white; }
+.btn-confirm { background: #00b894; color: white; }
+.btn-deny { background: #d63031; color: white; }
+
+/* Layout Principal de 3 Columnas */
+.main-layout {
+    display: grid;
+    grid-template-columns: 250px 1fr 250px; /* Izquierda, Centro, Derecha */
+    gap: 20px;
+    padding: 20px;
+    align-items: start;
+}
+
+/* Barra Lateral Izquierda (Usuarios) */
+.sidebar-left {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.user-item {
+    display: block;
+    padding: 10px;
+    margin-bottom: 5px;
+    text-decoration: none;
+    color: #555;
+    background: #f8f9fa;
+    border-radius: 8px;
+    transition: background 0.3s;
+    border-left: 4px solid transparent;
+}
+
+.user-item:hover {
+    background: #ffeaa7;
+    border-left: 4px solid #ff758c;
+}
+
+/* Modal / Formulario de Mensaje Flotante */
+.chat-box {
+    background: #fff0f3;
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid #ff758c;
+    margin-bottom: 20px;
+    animation: fadeIn 0.5s;
+}
+
+/* Barra Lateral Derecha (Mensajes) */
+.sidebar-right {
+    position: relative; /* Para posicionar respecto al header si fuera necesario */
+}
+
+/* Checkbox Hack para mostrar/ocultar mensajes */
+#toggle-inbox { display: none; } /* Ocultar el checkbox real */
+
+.inbox-label {
+    display: block;
+    background: #6c5ce7;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.inbox-container {
+    display: none; /* Oculto por defecto */
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+/* Cuando el checkbox está marcado, mostrar el inbox */
+#toggle-inbox:checked ~ .inbox-container {
+    display: block;
+}
+
+.message-card {
+    border-bottom: 1px solid #eee;
+    padding: 10px 0;
+    font-size: 0.9rem;
+}
+.message-card small { color: #888; }
+
+@keyframes fadeIn { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
