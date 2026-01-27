@@ -1,4 +1,3 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Pacifico&display=swap');
 
 body {
@@ -9,6 +8,7 @@ body {
     color: #333;
 }
 
+/* Landing Page */
 .landing {
     height: 100vh;
     background: linear-gradient(135deg, #ff7eb3, #ff758c);
@@ -35,9 +35,7 @@ body {
     border-radius: 20px;
 }
 
-.btn-group {
-    margin-top: 30px;
-}
+.btn-group { margin-top: 30px; }
 
 .btn {
     padding: 12px 30px;
@@ -56,14 +54,14 @@ body {
 .btn-primary { background: white; color: #ff758c; }
 .btn-secondary { background: transparent; border: 2px solid white; color: white; }
 
-
+/* Formularios y Contenedores */
 .container { max-width: 800px; margin: 50px auto; padding: 20px; }
 .card { background: white; padding: 30px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
 .form-group { margin-bottom: 15px; }
-input, select { width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 8px; box-sizing: border-box;}
+input, select, textarea { width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 8px; box-sizing: border-box; font-family: 'Poppins', sans-serif;}
 label { display: block; margin-bottom: 5px; font-weight: 600; }
 
-
+/* Tarjetas de Citas */
 .cita-card {
     background: white;
     margin-bottom: 20px;
@@ -75,11 +73,12 @@ label { display: block; margin-bottom: 5px; font-weight: 600; }
     align-items: center;
 }
 .cita-info h3 { margin: 0 0 5px 0; color: #ff758c; }
-.badge { padding: 5px 10px; border-radius: 5px; font-size: 0.8rem; }
-.pendiente { background: #ffeaa7; }
-.confirmada { background: #55efc4; }
+.badge { padding: 5px 10px; border-radius: 5px; font-size: 0.8rem; font-weight: bold; }
+.pendiente { background: #ffeaa7; color: #555; }
+.confirmada { background: #55efc4; color: #333; }
 .negada { background: #ff7675; color: white;}
 
+/* Botones de Acción */
 .actions button, .actions a {
     margin-left: 5px;
     padding: 5px 10px;
@@ -96,13 +95,13 @@ label { display: block; margin-bottom: 5px; font-weight: 600; }
 /* Layout Principal de 3 Columnas */
 .main-layout {
     display: grid;
-    grid-template-columns: 250px 1fr 250px; /* Izquierda, Centro, Derecha */
+    grid-template-columns: 250px 1fr 250px;
     gap: 20px;
     padding: 20px;
     align-items: start;
 }
 
-/* Barra Lateral Izquierda (Usuarios) */
+/* Barra Lateral Izquierda */
 .sidebar-left {
     background: white;
     padding: 15px;
@@ -138,12 +137,10 @@ label { display: block; margin-bottom: 5px; font-weight: 600; }
 }
 
 /* Barra Lateral Derecha (Mensajes) */
-.sidebar-right {
-    position: relative; /* Para posicionar respecto al header si fuera necesario */
-}
+.sidebar-right { position: relative; }
 
-/* Checkbox Hack para mostrar/ocultar mensajes */
-#toggle-inbox { display: none; } /* Ocultar el checkbox real */
+/* Checkbox Hack */
+#toggle-inbox { display: none; }
 
 .inbox-label {
     display: block;
@@ -158,7 +155,7 @@ label { display: block; margin-bottom: 5px; font-weight: 600; }
 }
 
 .inbox-container {
-    display: none; /* Oculto por defecto */
+    display: none;
     background: white;
     padding: 15px;
     border-radius: 10px;
@@ -167,16 +164,30 @@ label { display: block; margin-bottom: 5px; font-weight: 600; }
     overflow-y: auto;
 }
 
-/* Cuando el checkbox está marcado, mostrar el inbox */
-#toggle-inbox:checked ~ .inbox-container {
-    display: block;
-}
+#toggle-inbox:checked ~ .inbox-container { display: block; }
 
 .message-card {
     border-bottom: 1px solid #eee;
     padding: 10px 0;
     font-size: 0.9rem;
+    display: flex;
+    flex-direction: column;
 }
 .message-card small { color: #888; }
+
+/* ESTILO NUEVO PARA EL BOTÓN RESPONDER */
+.btn-reply {
+    display: inline-block;
+    margin-top: 5px;
+    align-self: flex-start;
+    padding: 4px 10px;
+    background-color: #6c5ce7;
+    color: white;
+    text-decoration: none;
+    font-size: 0.75rem;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+.btn-reply:hover { background-color: #5649c0; }
 
 @keyframes fadeIn { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }

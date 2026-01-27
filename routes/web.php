@@ -27,4 +27,7 @@ Route::middleware('auth')->group(function () {
     
     Route::post('/citas/{id}/responder', [CitaController::class, 'responder'])->name('citas.responder');
     Route::post('/mensajes', [App\Http\Controllers\CitaController::class, 'enviarMensaje'])->name('mensajes.store');
+    // Rutas de Perfil
+    Route::get('/perfil', [App\Http\Controllers\AuthController::class, 'editProfile'])->name('profile.edit');
+    Route::put('/perfil', [App\Http\Controllers\AuthController::class, 'updateProfile'])->name('profile.update');
 });

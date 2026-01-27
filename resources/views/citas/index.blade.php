@@ -67,8 +67,7 @@
                     @if($cita->estado == 'pendiente')
                         <span class="badge pendiente" style="background:#ffeaa7; padding:5px 10px; border-radius:10px;">Esperando respuesta...</span>
                     @else
-                        <span class="badge {{ $cita->estado }}" 
-                              style="padding: 5px 10px; border-radius: 10px;">
+                        <span class="badge {{ $cita->estado }}" style="padding: 5px 10px; border-radius: 10px;">
                             @if($cita->responder_id)
                                 <strong>{{ $cita->responder_nombre }} {{ $cita->responder_apellido }}</strong>
                             @else
@@ -115,8 +114,16 @@
             @else
                 @foreach($misMensajes as $msg)
                     <div class="message-card">
-                        <p style="margin: 5px 0; font-style: italic; color: #555;">"{{ $msg->mensaje }}"</p>
-                        <small style="font-size: 0.7rem; color: #aaa;">{{ $msg->created_at }}</small>
+                        <div style="font-weight: bold; color: #6c5ce7; margin-bottom: 2px;">
+                            {{ $msg->remitente_nombre }} {{ $msg->remitente_apellido }}
+                        </div>
+                        
+                        <p style="margin: 0 0 5px 0; font-style: italic; color: #555;">"{{ $msg->mensaje }}"</p>
+                        <small style="font-size: 0.7rem; color: #aaa; display:block; margin-bottom:5px;">{{ $msg->created_at }}</small>
+                        
+                        <a href="{{ route('citas.index', ['chat_with' => $msg->sender_id]) }}" class="btn-reply">
+                            Responder ↩
+                        </a>
                     </div>
                 @endforeach
             @endif

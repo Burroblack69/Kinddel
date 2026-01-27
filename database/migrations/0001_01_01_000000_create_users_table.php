@@ -6,31 +6,28 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up(): void
     {
-        // 1. Tabla Users
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('lastname'); // Tu campo personalizado
+            $table->string('lastname');
+            $table->string('preferencia'); // Hombre, Mujer, Ambos
             $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->string('sexo');        // Hombre, Mujer
+            $table->string('profile_photo')->nullable(); // <--- NUEVO CAMPO FOTO
             $table->rememberToken();
             $table->timestamps();
         });
 
-        // 2. Tabla Password Reset Tokens
+        // Tablas por defecto de Laravel (password_reset_tokens, sessions)
         Schema::create('password_reset_tokens', function (Blueprint $table) {
             $table->string('email')->primary();
             $table->string('token');
             $table->timestamp('created_at')->nullable();
         });
 
-        // 3. Tabla Sessions
         Schema::create('sessions', function (Blueprint $table) {
             $table->string('id')->primary();
             $table->foreignId('user_id')->nullable()->index();
@@ -41,9 +38,6 @@ return new class extends Migration
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::dropIfExists('users');
